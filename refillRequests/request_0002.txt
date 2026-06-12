@@ -1,0 +1,10 @@
+========================================
+          REFILL REQUEST
+========================================
+Request #: 0002
+Product:   Cappuccino
+Quantity:  15
+Employee:  Alice
+Status:    pending
+Date:      6/5/2026 4:54:50 PM
+========================================

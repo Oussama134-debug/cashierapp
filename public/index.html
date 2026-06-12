@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cashier App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="toast-container"></div>
+
+  <div id="login-screen">
+    <div class="login-box">
+      <h1>Cashier Login</h1>
+      <p class="login-hint">Enter your employee PIN</p>
+      <input type="password" id="pin-input" placeholder="PIN" maxlength="4" inputmode="numeric">
+      <p id="login-error" class="login-error hidden">Invalid PIN</p>
+      <button id="login-btn">Login</button>
+      <p class="login-pins">Demo PINs: 1111 (Alice/manager), 2222 (Bob), 3333 (Charlie)</p>
+    </div>
+  </div>
+
+  <div id="app" class="hidden">
+    <aside id="cart-panel">
+      <div class="cart-header">
+        <h2>Current Sale</h2>
+        <span id="item-count">0 items</span>
+      </div>
+      <div id="employee-badge"></div>
+      <div id="cart-items"></div>
+      <div class="cart-footer">
+        <div class="cart-total-row">
+          <span>Total</span>
+          <span id="cart-total">$0.00</span>
+        </div>
+        <button id="checkout-btn" disabled>Checkout</button>
+        <button id="cancel-btn" disabled>Cancel Sale</button>
+        <button id="stock-btn">📦 Stock Mgmt</button>
+        <button id="logout-btn">Logout</button>
+      </div>
+    </aside>
+
+    <main id="main-panel">
+      <header class="top-bar">
+        <input type="text" id="search-input" placeholder="Search products...">
+        <div id="category-filters"></div>
+      </header>
+      <div id="products-grid"></div>
+    </main>
+  </div>
+
+  <div id="payment-modal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Cash Payment</h2>
+      <div id="payment-total" class="payment-total">Total: $0.00</div>
+      <div class="payment-field">
+        <label>Customer name</label>
+        <input type="text" id="payment-customer-input" placeholder="Customer name (optional)">
+      </div>
+      <div class="payment-field">
+        <label>Amount given</label>
+        <input type="number" id="payment-amount-input" placeholder="0.00" step="0.01" min="0">
+      </div>
+      <div id="payment-change" class="payment-change">Change: $0.00</div>
+      <div id="payment-error" class="payment-error hidden">Insufficient amount</div>
+      <div class="payment-actions">
+        <button id="payment-cancel-btn">Cancel</button>
+        <button id="payment-confirm-btn">Complete Sale</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="stock-modal" class="modal hidden">
+    <div class="modal-content modal-wide">
+      <h2>📦 Stock Management</h2>
+      <div class="stock-tabs">
+        <button class="stock-tab active" data-tab="low">Low Stock</button>
+        <button class="stock-tab" data-tab="adjust">Manual Adjust</button>
+        <button class="stock-tab" data-tab="refills">Pending Refills</button>
+      </div>
+
+      <div class="stock-tab-content active" id="tab-low">
+        <p class="stock-section-title">Products with low or no stock</p>
+        <div id="low-stock-list"></div>
+      </div>
+
+      <div class="stock-tab-content" id="tab-adjust">
+        <div class="adjust-controls">
+          <input type="text" id="adjust-search" placeholder="Search product...">
+          <div id="adjust-product-list"></div>
+        </div>
+      </div>
+
+      <div class="stock-tab-content" id="tab-refills">
+        <p class="stock-section-title">Pending delivery requests</p>
+        <div id="refill-request-list"></div>
+      </div>
+
+      <div class="stock-footer" id="stock-footer-area">
+        <button id="stock-close-btn">Close</button>
+        <button id="stock-reset-btn" class="btn-danger hidden">🔄 Reset All Stocks</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="receipt-modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>Receipt</h2>
+      <div id="receipt-details"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

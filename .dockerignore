@@ -1,0 +1,5 @@
+node_modules
+cashier.db
+tickets
+refillRequests
+.DS_Store

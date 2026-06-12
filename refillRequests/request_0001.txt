@@ -1,0 +1,11 @@
+========================================
+          REFILL REQUEST
+========================================
+Request #: 0001
+Product:   Cappuccino
+Quantity:  20
+Employee:  Alice
+Status:    delivered
+Date:      6/5/2026 4:42:05 PM
+Fulfilled: 6/5/2026 4:42:05 PM
+========================================
