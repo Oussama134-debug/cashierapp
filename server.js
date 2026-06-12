@@ -4,8 +4,9 @@ const fs = require('fs');
 const db = require('./db');
 const { categoryDefaults } = require('./db');
 const app = express();
-const PORT = 3000;
 
+// Azure injecte automatiquement le bon port dans process.env.PORT
+const PORT = process.env.PORT || 3000; 
 app.use(express.json());
 app.use(express.static('public'));
 
@@ -302,6 +303,7 @@ app.get('/api/transactions', (req, res) => {
   res.json(txns.map(t => ({ ...t, items: JSON.parse(t.items) })));
 });
 
+
 app.listen(PORT, () => {
-  console.log(`Cashier app running at http://localhost:${PORT}`);
+    console.log(`Server running on port ${PORT}`);
 });
